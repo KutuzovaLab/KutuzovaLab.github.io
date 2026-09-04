@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kutuzova Lab</title>
+<meta name="description" content="A research group at the Department of Computer Science, University of Copenhagen, developing deep learning methods for life science data.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Spectral:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#FCFBF9;
+  --ink:#1A1A1C;
+  --soft:#6B6874;
+  --faint:#A09CA6;
+  --accent:#4A1252;
+  --rule:#E2DFDC;
+  --serif:"Spectral",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--serif);font-weight:400;font-size:19.5px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.page{max-width:920px;margin:0 auto;padding:0 40px}
+
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid #CFCBD3;transition:border-color .2s,color .2s}
+a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+a:focus-visible{outline:1px solid var(--accent);outline-offset:3px}
+
+/* ---------- masthead ---------- */
+header{padding:52px 0 0}
+.mark{display:block;width:52px;height:29px;overflow:visible;margin-bottom:22px}
+.mark path{fill:none;stroke:var(--accent);stroke-width:1.25;stroke-linecap:round}
+.mark .base{stroke:var(--rule);stroke-width:1}
+
+h1{font-weight:400;font-size:clamp(2.5rem,5.6vw,3.3rem);letter-spacing:-.02em;line-height:1.05;margin:0 0 16px}
+.sub{max-width:52ch;margin:0;font-size:1.15rem;line-height:1.55;color:var(--soft)}
+.affil{margin:18px 0 0;font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);line-height:1.8}
+
+/* ---------- sections ---------- */
+main{padding-top:56px}
+section{margin-bottom:62px}
+section:last-of-type{margin-bottom:0}
+h2{
+  font-family:var(--mono);font-weight:500;font-size:.84rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--accent);
+  margin:0 0 20px;padding-bottom:10px;border-bottom:1px solid var(--rule);
+}
+p{margin:0 0 15px;max-width:100ch}
+p:last-child{margin-bottom:0}
+em{font-style:italic}
+.note{margin-top:14px;font-size:1rem;line-height:1.55;color:var(--soft)}
+.note:first-of-type{margin-top:22px}
+
+/* ---------- people ---------- */
+.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:30px 18px;margin-top:2px}
+.person{text-align:center}
+.disc{
+  width:92px;height:92px;border-radius:50%;margin:0 auto 12px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:1rem;letter-spacing:.06em;
+  color:var(--accent);background:#F2EDF3;border:1px solid #E2D7E6;
+  overflow:hidden;
+}
+.disc img{width:100%;height:100%;object-fit:cover;display:block}
+.person .nm{font-size:1.06rem;line-height:1.3;margin:0 0 4px;display:block}
+.person a.nm{border-bottom:none}
+.person a.nm:hover{color:var(--accent)}
+.person .rl{font-family:var(--mono);font-size:.72rem;letter-spacing:.07em;color:var(--soft);display:block;line-height:1.5}
+
+.person.vacant .disc{background:transparent;border:1px dashed #CBC7CF;color:var(--faint);font-size:1.5rem}
+.person.vacant .nm{color:var(--faint);font-style:italic}
+.person.vacant .rl{color:var(--faint)}
+
+/* ---------- news ---------- */
+.news{margin:0;padding:0;list-style:none}
+.news li{padding:18px 0;border-bottom:1px solid var(--rule)}
+.news li:first-child{padding-top:2px}
+.news li:last-child{border-bottom:none;padding-bottom:0}
+.news .dt{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;color:var(--accent);display:block;margin-bottom:6px}
+.news p{margin:0 0 10px;font-size:1.04rem;line-height:1.55;max-width:76ch}
+.news p:last-child{margin-bottom:0}
+
+/* ---------- links ---------- */
+.links{margin:0;padding:0;list-style:none}
+.links li{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.links li:first-child{padding-top:2px}
+.links li:last-child{border-bottom:none;padding-bottom:0}
+.links .l{font-size:1.06rem}
+.links .r{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--soft);white-space:nowrap}
+
+/* ---------- contact ---------- */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.contact .k{font-family:var(--mono);font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--soft);display:block;margin-bottom:5px}
+.contact p{margin:0;font-size:1.06rem;line-height:1.55}
+
+footer{
+  margin:70px 0 48px;padding-top:16px;border-top:1px solid var(--rule);
+  font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--soft);
+}
+
+@media (max-width:1200px){
+  body{font-size:18.5px}
+  .page{padding:0 22px}
+  header{padding-top:38px}
+  main{padding-top:44px}
+  section{margin-bottom:50px}
+  .people{grid-template-columns:repeat(auto-fill,minmax(116px,1fr));gap:24px 12px}
+  .disc{width:78px;height:78px}
+  .links li{flex-direction:column;gap:2px}
+  .links .r{white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <svg class="mark" viewBox="0 0 46 26" aria-hidden="true">
+      <path class="base" d="M0 24 H46"/>
+      <path d="M0 24 H13 Q17.5 24 19 14 Q21 3 23 3 Q25 3 27 14 Q28.5 24 33 24 H46"/>
+    </svg>
+    <!-- <h1>Kutuzova Lab</h1> -->
+    <!-- <p class="affil">Department of Computer Science<br>University of Copenhagen</p> -->
+  </header>
+
+  <main>
+
+    <section id="about">
+      <h2>The group</h2>
+      <p>We are a research group established in September 2026, led by Assistant Professor <a href="https://www.linkedin.com/in/svetlana-kutuzova-8076a959/">Svetlana Kutuzova</a>.</p>
+
+      <p>We are a CS lab developing deep learning methods in the domains of generative modeling, probabilistic modeling and multimodal deep learning.</p>
+
+      <p>We tackle important life science problems and highly value our experimental and bioinformatics collaborators. Our favorite data currently are: untargeted metabolomics, mass specs and chromatograms, metagenome sequencing, Electronic Healthcare Records. We are always happy to collaborate on new problems and datatypes.</p>
+
+      <p>The current grant of €1.6 million from the <a href="https://researchleaderprogramme.com/recipients/svetlana-kutuzova/">Novo Nordisk Foundation</a> allows us to dig deep into closing the methodological gaps with detecting and identifying harmful chemicals in water. More specifically, we develop novel generative models on untargeted chromatography–mass spectrometry data. We closely collaborate with the <a href="https://www.linkedin.com/in/jan-h-christensen-2281415/">Jan H. Christensen</a> analytical chemistry lab and their vast collection of Danish water samples.</p>
+    </section>
+
+    <section id="people">
+      <h2>People</h2>
+      <div class="people">
+
+        <div class="person">
+          <div class="disc">SK</div>
+          <a class="nm" href="index.html">Svetlana Kutuzova</a>
+          <span class="rl">Principal Investigator<br>Assistant Professor</span>
+        </div>
+
+        <div class="person">
+          <div class="disc">UD</div>
+          <span class="nm">Uffe Dalgas</span>
+          <span class="rl">PhD Student</span>
+        </div>
+
+        <div class="person vacant">
+          <div class="disc">+</div>
+          <span class="nm">Vacant</span>
+          <span class="rl">Postdoc</span>
+        </div>
+
+        <div class="person vacant">
+          <div class="disc">+</div>
+          <span class="nm">Vacant</span>
+          <span class="rl">Postdoc</span>
+        </div>
+
+        <div class="person vacant">
+          <div class="disc">+</div>
+          <span class="nm">Vacant</span>
+          <span class="rl">Research Assistant</span>
+        </div>
+
+      </div>
+      <p class="note">There are three potentially open positions; hiring will resume in the second half of 2027.</p>
+      <p class="note">We will be looking for CS postdocs interested in generative modeling and/or uncertainty estimation, who also would like to be challenged by an analytical chemistry domain.</p>
+      <p class="note">You can write to Svetlana at <a href="mailto:svegal@di.ku.dk">svegal@di.ku.dk</a> before that, but the answer might be delayed due to maternity leave.</p>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news">
+        <li>
+          <span class="dt">September 1st, 2026</span>
+          <p>The group officially started at the Department of Computer Science!</p>
+          <p>PhD student Uffe Dalgas works under the guidance of Svetlana Kutuzova, in collaboration with Jan H. Christensen from PLEN and Mads Nielsen at the Pioneer Centre for AI.</p>
+        </li>
+        <li>
+          <span class="dt">May 27th, 2026</span>
+          <p>We hosted the workshop <em><a href="https://sgalkina.github.io/aimmi-workshop/">AI for DNA, Chemicals and Microbiome: models, mechanisms and applications</a></em> at the Natural History Museum of Denmark, with the <a href="https://www.aicentre.dk/">Pioneer Centre for AI</a> and <a href="https://bright.dtu.dk/">BRIGHT</a>.</p>
+        </li>
+        <li>
+          <span class="dt">April 27th, 2026</span>
+          <p><a href="https://doi.org/10.1038/s41587-026-03098-0">Improving metagenome binning by integrating intrinsic features and taxonomy</a> published in <em>Nature Biotechnology</em>. First-authored by Svetlana Kutuzova, as part of the <a href="https://novonordiskfonden.dk/en/news/novo-nordisk-foundation-awards-usd-30-million-for-a-plant-research-project-to-kickstart-the-next-green-revolution/">MATRIX project</a>.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="links">
+      <h2>Links</h2>
+      <ul class="links">
+        <li><span class="l"><a href="https://github.com/KutuzovaLab">KutuzovaLab</a></span><span class="r">Github</span></li>
+        <li><span class="l"><a href="https://www.aicentre.dk/">Pioneer Centre for AI</a></span><span class="r">Affiliation</span></li>
+        <li><span class="l"><a href="https://di.ku.dk/english/">Department of Computer Science, University of Copenhagen</a></span><span class="r">Department</span></li>
+      </ul>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <div>
+          <span class="k">Email</span>
+          <p><a href="mailto:svegal@di.ku.dk">svegal@di.ku.dk</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>Pioneer Centre for Artificial Intelligence · University of Copenhagen</footer>
+
+</div>
+</body>
+</html>
